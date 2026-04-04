@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "company": "Experion Technologies",
+    "role": "Software Engineer",
+    "period": "04/2024 - Present",
+    "description": "Led end-to-end UI/UX design and development for a US-based healthcare hospital project. Created scalable design systems and integrated backend services using RESTful APIs, Zustand, and React Query."
+  },
+  {
+    "id": "2",
+    "company": "Experion Technologies",
+    "role": "Associate Software Engineer",
+    "period": "04/2023 - 04/2024",
+    "description": "Developed responsive interfaces for a Forum project using Tailwind CSS and React. Achieved a 40% improvement in mobile usability and reduced boilerplate by 30% using Zustand."
+  },
+  {
+    "id": "3",
+    "company": "Experion Technologies",
+    "role": "Associate Trainee Engineer",
+    "period": "12/2022 - 04/2023",
+    "description": "Developed a full-stack Individual Development Planner (IDP) using .NET, Angular, and SQL. Delivered a fully functional feature within two months."
+  }
+]
