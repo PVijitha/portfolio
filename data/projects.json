@@ -12,10 +12,7 @@
       "wireframes": "Developed high-fidelity wireframes in Figma focusing on accessibility and visual hierarchy.",
       "finalUI": "Implemented a clean, accessible interface using Tailwind CSS and DevExtreme UI components.",
       "outcome": "Significantly improved task efficiency and received positive feedback during client walkthroughs.",
-      "gallery": [
-        "../assets/images/health.png",
-        "https://picsum.photos/seed/health2/800/600"
-      ]
+      "gallery": ["../assets/images/healthhome.png"]
     },
     "createdAt": "2026-03-22T06:04:31.577Z"
   },
@@ -32,7 +29,7 @@
       "wireframes": "Redesigned the mobile experience to ensure a 40% improvement in usability scores.",
       "finalUI": "Integrated React Query for optimized data fetching and Zustand for lightweight state management.",
       "outcome": "Reduced boilerplate by 30% and significantly enhanced overall platform responsiveness.",
-      "gallery": ["https://picsum.photos/seed/forum1/800/600"]
+      "gallery": ["../assets/images/forumhome.png"]
     },
     "createdAt": "2026-03-22T06:04:31.579Z"
   },
@@ -40,9 +37,9 @@
     "id": "3",
     "title": "Task Management App",
     "description": "A clean and efficient task management application designed to organize daily workflows and boost productivity.",
-    "category": "Web",
+    "category": "Mobile",
     "tags": ["Productivity", "React", "Zustand", "Tailwind"],
-    "imageUrl": "/images/todo.png",
+    "imageUrl": "../assets/images/todo.png",
     "caseStudy": {
       "problem": "Users struggled with managing tasks efficiently due to cluttered interfaces and lack of prioritization tools.",
       "research": "Analyzed common productivity patterns and user pain points in existing task management tools.",
@@ -59,7 +56,7 @@
     "description": "A real-time scoring platform designed for competitions, enabling judges to evaluate participants efficiently.",
     "category": "Web",
     "tags": ["Realtime", "React", "WebSockets", "UI/UX"],
-    "imageUrl": "/images/judges.png",
+    "imageUrl": "../assets/images/scoring.png",
     "caseStudy": {
       "problem": "Manual scoring processes caused delays and inconsistencies during competitions.",
       "research": "Studied scoring workflows and identified the need for real-time updates and transparency.",
@@ -76,7 +73,7 @@
     "description": "A modern movie ticket booking interface with seamless seat selection and real-time availability.",
     "category": "Web",
     "tags": ["Booking", "React", "UX", "Tailwind"],
-    "imageUrl": "/images/movie.png",
+    "imageUrl": "../assets/images/movie.png",
     "caseStudy": {
       "problem": "Users faced difficulties in selecting seats and navigating booking flows efficiently.",
       "research": "Analyzed booking flows of popular platforms to identify usability gaps.",
@@ -93,7 +90,7 @@
     "description": "A dynamic quiz platform with real-time scoring, timers, and engaging user experience.",
     "category": "Web",
     "tags": ["Quiz", "React", "State Management", "UX"],
-    "imageUrl": "/images/quiz.png",
+    "imageUrl": "../assets/images/quiz.png",
     "caseStudy": {
       "problem": "Traditional quiz apps lacked engagement and real-time feedback mechanisms.",
       "research": "Studied gamification techniques to improve user engagement.",
@@ -108,9 +105,9 @@
     "id": "7",
     "title": "Restaurant Ordering App",
     "description": "A seamless food ordering platform with intuitive menu browsing and smooth checkout experience.",
-    "category": "Web",
+    "category": "Mobile",
     "tags": ["Food", "React", "E-commerce", "UI/UX"],
-    "imageUrl": "/images/restaurant.png",
+    "imageUrl": "../assets/images/restaurant.png",
     "caseStudy": {
       "problem": "Users experienced difficulty navigating menus and placing orders quickly.",
       "research": "Analyzed food ordering behavior and optimized menu structure.",
@@ -125,7 +122,7 @@
     "id": "8",
     "title": "Pet Adoption Platform",
     "description": "A user-friendly platform connecting pets with adopters through a clean and emotional design approach.",
-    "category": "Web",
+    "category": "Mobile",
     "tags": ["Pets", "React", "UI/UX", "Accessibility"],
     "imageUrl": "/images/pet.png",
     "caseStudy": {
@@ -134,7 +131,7 @@
       "wireframes": "Designed pet profiles with clear information and easy contact options.",
       "finalUI": "Built a warm and accessible interface with focus on visuals and usability.",
       "outcome": "Enhanced user trust and increased adoption inquiries.",
-      "gallery": ["/images/pet1.png"]
+      "gallery": ["../assets/images/pets.png"]
     },
     "createdAt": "2026-03-22T06:04:31.585Z"
   }

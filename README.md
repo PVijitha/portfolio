@@ -1,20 +1,80 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🚀 Portfolio Application
 
-# Run and deploy your AI Studio app
+A modern web application built to showcase my development skills and projects. This app demonstrates clean UI design, efficient backend handling, and real-world development practices.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/2e4ce1b6-a968-411d-9c2e-d560f9b140eb
+## 🌟 About the Project
 
-## Run Locally
+This project is a personal portfolio application where users can explore my work, skills, and projects. It is designed to be fast, responsive, and easy to navigate.
 
-**Prerequisites:**  Node.js
+---
 
+## ✨ Features
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- 📂 Showcase of projects
+- 🧑‍💻 About me section
+- 📱 Fully responsive design
+- ⚡ Fast performance
+- 🔗 Easy navigation
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** React / TypeScript
+- **Backend:** Node.js
+- **Runtime:** tsx
+- **Styling:** CSS / Tailwind (edit if needed)
+
+---
+
+## 📸 Screenshots
+
+![Portfolio Screenshot](https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6)
+
+---
+
+## ⚙️ Run Locally
+
+### Prerequisites
+
+- Node.js installed
+
+### Steps
+
+```bash
+npm install
+```
+
+Run the app:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📁 Project Structure
+
+```
+/portfolio
+ ├── server.ts
+ ├── src/
+ ├── public/
+ └── package.json
+```
+
+---
+
+## 👨‍💻 Author
+
+- Vijitha.P
+- GitHub: https://github.com/PVijitha
+- LinkedIn: https://www.linkedin.com/in/vijitha-p-52350320b/
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!

@@ -4,10 +4,22 @@ import { motion } from "motion/react";
 import { Project } from "../types";
 import healthcareImg from "../assets/images/healthcare.png";
 import forumImg from "../assets/images/forum.png";
+import todoImg from "../assets/images/todo.png";
+import scoringImg from "../assets/images/scoring.png";
+import movieImg from "../assets/images/movie.png";
+import quizImg from "../assets/images/quiz.png";
+import restaurantImg from "../assets/images/restaurant.png";
+import petsImg from "../assets/images/pets.png";
 
 const imageMap: Record<string, string> = {
   "1": healthcareImg,
   "2": forumImg,
+  "3": todoImg,
+  "4": scoringImg,
+  "5": movieImg,
+  "6": quizImg,
+  "7": restaurantImg,
+  "8": petsImg,
 };
 
 export default function ProjectCard({ project }: { project: Project }) {

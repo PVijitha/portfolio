@@ -5,6 +5,32 @@ import { motion } from "motion/react";
 import { Section, Button } from "../components/UI";
 import { api } from "../services/api";
 import { Project } from "../types";
+import healthcareImg from "../assets/images/healthcare.png";
+import forumImg from "../assets/images/forum.png";
+import todoImg from "../assets/images/todo.png";
+import scoringImg from "../assets/images/scoring.png";
+import movieImg from "../assets/images/movie.png";
+import quizImg from "../assets/images/quiz.png";
+import restaurantImg from "../assets/images/restaurant.png";
+import petsImg from "../assets/images/pets.png";
+import healthhomeImg from "../assets/images/healthhome.png";
+import forumhomeImg from "../assets/images/forumhome.png";
+
+const imageMap: Record<string, string> = {
+  "1": healthcareImg,
+  "2": forumImg,
+  "3": todoImg,
+  "4": scoringImg,
+  "5": movieImg,
+  "6": quizImg,
+  "7": restaurantImg,
+  "8": petsImg,
+};
+
+const gallaryMap: Record<string, string> = {
+  "1": healthhomeImg,
+  "2": forumhomeImg,
+};
 
 export default function CaseStudy() {
   const { id } = useParams();
@@ -68,7 +94,7 @@ export default function CaseStudy() {
 
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-black/5">
             <img
-              src={project.imageUrl}
+              src={imageMap[project.id]}
               alt={project.title}
               className="w-full h-auto"
               referrerPolicy="no-referrer"
@@ -113,7 +139,7 @@ export default function CaseStudy() {
                     {project.caseStudy.gallery.map((img, i) => (
                       <img
                         key={i}
-                        src={img}
+                        src={gallaryMap[project.id]}
                         className="rounded-2xl shadow-lg border border-black/5"
                         referrerPolicy="no-referrer"
                       />
