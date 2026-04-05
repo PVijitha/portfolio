@@ -40,7 +40,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-
+          // adding new pull request for footer component
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-6">
               Navigation
