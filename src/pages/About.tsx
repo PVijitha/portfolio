@@ -68,7 +68,7 @@ export default function About() {
         >
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight">
             I'm Vijitha P, <br />
-            <span className="text-zinc-300 italic">Front-End Developer.</span>
+            <span className="text-zinc-300">Front-End Developer.</span>
           </h1>
           <p className="text-xl text-zinc-500 leading-relaxed font-medium">
             A Front-End Developer with 3 years of experience, specializing in
