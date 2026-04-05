@@ -205,7 +205,7 @@ export default function Admin() {
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="text-red-500 hover:text-red-600"
+                          className="text-red-600 hover:text-red-600"
                           onClick={() => deleteExperience(e.id)}
                         >
                           <Trash2 className="w-4 h-4" />
