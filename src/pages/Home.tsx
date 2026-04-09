@@ -98,7 +98,7 @@ export default function Home() {
 
             <motion.p
               variants={itemVariants}
-              className="text-xl md:text-2xl text-zinc-600 max-w-2xl mb-12 leading-relaxed font-medium"
+              className="text-xl md:text-2xl text-zinc-700 max-w-2xl mb-12 leading-relaxed font-medium"
             >
               A Front-End Developer with 3 years of experience, specializing in
               UI/UX development and creating responsive, visually engaging user
