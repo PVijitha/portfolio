@@ -1,36 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ExternalLink, Calendar, Tag } from "lucide-react";
-import { motion } from "motion/react";
+import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { Section, Button } from "../components/UI";
 import { api } from "../services/api";
 import { Project } from "../types";
-import healthcareImg from "../assets/images/healthcare.png";
-import forumImg from "../assets/images/forum.png";
-import todoImg from "../assets/images/todo.png";
-import scoringImg from "../assets/images/scoring.png";
-import movieImg from "../assets/images/movie.png";
-import quizImg from "../assets/images/quiz.png";
-import restaurantImg from "../assets/images/restaurant.png";
-import petsImg from "../assets/images/pets.png";
-import healthhomeImg from "../assets/images/healthhome.png";
-import forumhomeImg from "../assets/images/forumhome.png";
-
-const imageMap: Record<string, string> = {
-  "1": healthcareImg,
-  "2": forumImg,
-  "3": todoImg,
-  "4": scoringImg,
-  "5": movieImg,
-  "6": quizImg,
-  "7": restaurantImg,
-  "8": petsImg,
-};
-
-const gallaryMap: Record<string, string> = {
-  "1": healthhomeImg,
-  "2": forumhomeImg,
-};
+import { resolveProjectMedia } from "../lib/projectMedia";
 
 export default function CaseStudy() {
   const { id } = useParams();
@@ -49,6 +23,8 @@ export default function CaseStudy() {
     return <div className="pt-32 text-center">Loading case study...</div>;
   if (!project)
     return <div className="pt-32 text-center">Project not found.</div>;
+
+  const imageUrl = resolveProjectMedia(project.imageUrl, project.id);
 
   return (
     <div className="pt-24 pb-24">
@@ -94,7 +70,7 @@ export default function CaseStudy() {
 
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-black/5">
             <img
-              src={imageMap[project.id]}
+              src={imageUrl}
               alt={project.title}
               className="w-full h-auto"
               referrerPolicy="no-referrer"
@@ -139,7 +115,8 @@ export default function CaseStudy() {
                     {project.caseStudy.gallery.map((img, i) => (
                       <img
                         key={i}
-                        src={gallaryMap[project.id]}
+                        src={resolveProjectMedia(img, project.id)}
+                        alt={`${project.title} gallery ${i + 1}`}
                         className="rounded-2xl shadow-lg border border-black/5"
                         referrerPolicy="no-referrer"
                       />

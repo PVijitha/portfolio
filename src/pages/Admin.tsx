@@ -2,16 +2,17 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Plus,
+  Pin,
   Trash2,
   Edit2,
   LogOut,
   MessageSquare,
   Briefcase,
   LayoutGrid,
-  Image as ImageIcon,
 } from "lucide-react";
 import { Section, Button, Card } from "../components/UI";
 import { api } from "../services/api";
+import { resolveProjectMedia } from "../lib/projectMedia";
 import { Project, Experience, Message } from "../types";
 
 export default function Admin() {
@@ -25,35 +26,62 @@ export default function Admin() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("admin_token");
-    if (!token) {
-      navigate("/login");
-      return;
-    }
+    let isActive = true;
 
-    const fetchData = async () => {
+    const unsubscribe = api.subscribeToAuthChanges(async (user) => {
+      if (!isActive) {
+        return;
+      }
+
+      if (!user) {
+        setLoading(false);
+        navigate("/login");
+        return;
+      }
+
       try {
-        const [p, e, m] = await Promise.all([
+        const isAdmin = await api.isAdminUser(user);
+
+        if (!isActive) {
+          return;
+        }
+
+        if (!isAdmin) {
+          await api.logout();
+          navigate("/login");
+          return;
+        }
+
+        const [projectData, experienceData, messageData] = await Promise.all([
           api.getProjects(),
           api.getExperience(),
           api.getMessages(),
         ]);
-        setProjects(p);
-        setExperience(e);
-        setMessages(m);
-      } catch (err) {
-        localStorage.removeItem("admin_token");
-        navigate("/login");
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    fetchData();
+        if (!isActive) {
+          return;
+        }
+
+        setProjects(projectData);
+        setExperience(experienceData);
+        setMessages(messageData);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        if (isActive) {
+          setLoading(false);
+        }
+      }
+    });
+
+    return () => {
+      isActive = false;
+      unsubscribe();
+    };
   }, [navigate]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("admin_token");
+  const handleLogout = async () => {
+    await api.logout();
     navigate("/login");
   };
 
@@ -137,13 +165,23 @@ export default function Admin() {
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-zinc-100 rounded-lg overflow-hidden border border-black/5">
                           <img
-                            src={p.imageUrl}
+                            src={resolveProjectMedia(p.imageUrl, p.id)}
                             alt=""
                             className="w-full h-full object-cover"
                           />
                         </div>
                         <div>
-                          <div className="font-bold">{p.title}</div>
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <div className="font-bold">{p.title}</div>
+                            {p.pinned && (
+                              <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
+                                <Pin className="h-3 w-3" />
+                                {p.pinOrder !== null && p.pinOrder !== undefined
+                                  ? `Pinned ${p.pinOrder}`
+                                  : "Pinned"}
+                              </span>
+                            )}
+                          </div>
                           <div className="text-xs text-zinc-400 uppercase tracking-wider">
                             {p.category}
                           </div>

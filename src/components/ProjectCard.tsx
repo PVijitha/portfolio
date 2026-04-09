@@ -2,27 +2,11 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { Project } from "../types";
-import healthcareImg from "../assets/images/healthcare.png";
-import forumImg from "../assets/images/forum.png";
-import todoImg from "../assets/images/todo.png";
-import scoringImg from "../assets/images/scoring.png";
-import movieImg from "../assets/images/movie.png";
-import quizImg from "../assets/images/quiz.png";
-import restaurantImg from "../assets/images/restaurant.png";
-import petsImg from "../assets/images/pets.png";
-
-const imageMap: Record<string, string> = {
-  "1": healthcareImg,
-  "2": forumImg,
-  "3": todoImg,
-  "4": scoringImg,
-  "5": movieImg,
-  "6": quizImg,
-  "7": restaurantImg,
-  "8": petsImg,
-};
+import { resolveProjectMedia } from "../lib/projectMedia";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const imageUrl = resolveProjectMedia(project.imageUrl, project.id);
+
   return (
     <motion.div
       whileHover={{ y: -12 }}
@@ -32,7 +16,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <Link to={`/projects/${project.id}`} className="block">
         <div className="relative aspect-4/3 overflow-hidden rounded-4xl bg-zinc-50 mb-8 border border-zinc-100">
           <img
-            src={imageMap[project.id]}
+            src={imageUrl}
             alt={project.title}
             className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
             referrerPolicy="no-referrer"

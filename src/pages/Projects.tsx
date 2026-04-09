@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Search, Filter } from "lucide-react";
+import { Search } from "lucide-react";
 import { Section } from "../components/UI";
 import ProjectCard from "../components/ProjectCard";
 import { api } from "../services/api";
@@ -15,7 +15,7 @@ export default function Projects() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    api.getProjects().then((data) => {
+    api.getProjects().then((data: any) => {
       setProjects(data);
       setLoading(false);
     });

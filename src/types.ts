@@ -5,6 +5,8 @@ export interface Project {
   category: 'Web' | 'Mobile' | 'Dashboard';
   tags: string[];
   imageUrl: string;
+  pinned?: boolean;
+  pinOrder?: number | null;
   caseStudy: {
     problem: string;
     research: string;
@@ -23,6 +25,8 @@ export interface Experience {
   role: string;
   period: string;
   description: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Message {

@@ -1,26 +1,49 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Lock } from "lucide-react";
-import { Section, Button, Card } from "../components/UI";
+import { Button, Card } from "../components/UI";
 import { api } from "../services/api";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let isActive = true;
+
+    const unsubscribe = api.subscribeToAuthChanges(async (user) => {
+      if (!user || !isActive) {
+        return;
+      }
+
+      if (await api.isAdminUser(user)) {
+        navigate("/admin");
+        return;
+      }
+
+      await api.logout();
+    });
+
+    return () => {
+      isActive = false;
+      unsubscribe();
+    };
+  }, [navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
     try {
-      const { token } = await api.login({ username, password });
-      localStorage.setItem("admin_token", token);
+      await api.login({ email: email.trim(), password });
       navigate("/admin");
     } catch (err) {
-      setError("Invalid username or password");
+      setError(
+        err instanceof Error ? err.message : "Invalid email or password",
+      );
     } finally {
       setLoading(false);
     }
@@ -35,7 +58,7 @@ export default function Login() {
           </div>
           <h1 className="text-2xl font-bold">Admin Login</h1>
           <p className="text-zinc-500 text-sm mt-2">
-            Enter your credentials to manage your portfolio.
+            Sign in with your admin Firebase credentials.
           </p>
         </div>
 
@@ -47,13 +70,13 @@ export default function Login() {
           )}
           <div className="space-y-2">
             <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">
-              Username
+              Email
             </label>
             <input
               required
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 bg-zinc-50 border border-black/5 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 transition-all"
             />
           </div>
