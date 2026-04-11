@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-black/5 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between">
+        <div className="flex justify-between items-start gap-12 flex-col md:flex-row">
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform">

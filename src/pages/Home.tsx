@@ -89,7 +89,7 @@ export default function Home() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-6xl md:text-[100px] font-extrabold tracking-tighter leading-[0.9] mb-10 gradient-text"
+              className="md:text-6xl text-5xl md:text-[100px] font-extrabold tracking-tighter leading-[0.9] mb-10 gradient-text"
             >
               Designing digital <br />
               experiences that <br />
@@ -147,22 +147,6 @@ export default function Home() {
             <div className="absolute -inset-4 bg-zinc-900 -z-10 rounded-[52px] rotate-1 opacity-5" />
           </motion.div>
         </div>
-
-        {/* Floating Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block"
-        >
-          <div className="w-6 h-10 border-2 border-zinc-200 rounded-full flex justify-center p-1">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-zinc-400 rounded-full"
-            />
-          </div>
-        </motion.div>
       </Section>
 
       {/* Skills Highlight */}
