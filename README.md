@@ -2,7 +2,7 @@
 
 A modern web application built to showcase my development skills and projects. This app demonstrates clean UI design, efficient backend handling, and real-world development practices.
 
--------
+----------
 
 ## 🌟 About the Project
 
